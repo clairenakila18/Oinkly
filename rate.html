@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./assets/css/style.css" />
+		<style>
+		  
+		  
+			body {
+			  background-color: white;
+									 }
+		  
+			#form {
+			  line-height: 35px;
+			  width: 40%;
+			  display: flex;
+    		  flex-direction: column;
+    		  align-items: center;
+			  /* background-color: #333; */
+			}
+		  
+			#card1 {
+			  width: 375px;
+			  height: 239px;
+		  
+			  border-radius: 15px;
+			  background-size: cover;
+			  /* background-attachment:calc(1.0); */
+			  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+		  
+			}
+		  
+		  
+			#da {
+			  line-height: 0px;
+			  margin-left: 32%;
+			  margin-top: 21%;
+			  font-size: 21px;
+			  color: #fff;
+			  font-family: poppins;
+			  line-height: 33px;
+			}
+		  
+			#main {
+			  display: flex;
+			  align-items: center;
+			  width: 60%;
+			  height: 590px;
+			  /* border: 1px solid red; */
+			  justify-content: space-between;
+			  padding: 2%;
+			  /* background-color: #333; */
+			  background: #1f5858;
+			  /* fallback for old browsers */
+			  background: -webkit-linear-gradient(to right, #b19eb2, #d9b0d2);
+			  /* Chrome 10-25, Safari 5.1-6 */
+			  background: linear-gradient(to right, #b19eb2, #d9b0d2);
+			  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+			  border-top-right-radius: 40px;
+			  border-bottom-left-radius: 40px;
+			  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+			  margin: auto;
+			  margin-top: 30px;
+			}
+		  
+			#form input {
+			  width: 90%;
+			  padding: 10px;
+			  margin-bottom: 20px;
+			  border-radius: 5px;
+			  border: none;
+			  border-color: #fff;
+			  font-family: poppins;
+			}
+		  
+			label {
+			  color: #fff;
+			  display: block;
+			  margin-bottom: 2%;
+			  font-family: montserrat;
+			  color: #fff;
+			}
+		  
+			#h {
+			  text-align: center;
+			  font-family: montserrat;
+			  margin-top: 30px;
+			}
+	
+
+
+			#payNowButton {
+    		margin-top: 20px; /* Adjust margin as needed */
+			background-color: black; 
+			color: white; 
+			border: none; 
+			padding: 10px 20px; 
+			cursor: pointer;
+}
+
+			
+
+  
+		   @media screen and (max-width: 768px) {
+			  #main {
+				flex-direction: column;
+				width: 90%;
+				height:100%
+			  }
+		  
+			  #card1 {
+				width: 100%;
+				margin-bottom: 20px;
+			  }
+		  
+			  #form {
+				width: 100%;
+				padding: 10px; /* Adjust padding as needed */
+				box-sizing: border-box; /* Include padding in width calculation */
+			  }
+			}
+		  
+			@media screen and (max-width: 480px) {
+			  #form {
+				height: auto; /* Set height to auto for smaller screens */
+			  }
+			}
+            /*rate.css*/
+
+            .controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
+}
+
+.controls,
+.order-tracker {
+  margin: 10px auto;
+  width: 645px;
+  background-color: $white-color;
+  border-radius: 8px;
+}
+
+.order-tracker {
+  padding: 40px;
+}
+
+.order-info {
+  display: flex;
+  justify-content: space-between;
+  
+  &__number {
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 400;
+    
+    a:last-child {
+      color: $accent-color;
+      font-weight: 700;
+    }
+  }
+  
+  &__details {
+    
+    &__arrival-date,
+    &__tracking-number {
+      display: block;
+      text-align: right;
+    }
+    
+    &__tracking-number {
+      
+      a {
+        font-weight: 700;
+        color: $black-color;
+      }
+    }
+  }
+}
+
+.order-status__progress {
+  margin: 45px 0;
+}
+
+.order-status__status-info {
+  font-size: 14px;
+}
+
+.order-status__status-info ol {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.order-status__status-info__step {
+  display: inline-flex;
+  padding: 0.1px;
+}
+
+.icon {
+  width: 45%;
+  margin-right: 10px;
+}
+
+.status {
+  margin-top: 10px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.overlay-check-bubble,
+.checkmark,
+.progress-bar {
+  visibility: hidden;
+}
+
+.accented {
+  fill: $accent-color;
+  stroke: $accent-color;
+}
+
+@import url('https://rsms.me/inter/inter.css');
+
+body, html {width: 100%; height: 100%; font-family: 'Inter', sans-serif;}
+body * {box-sizing: border-box;}
+
+:root {
+	--purple-bare: #F8EDFF;
+	--purple-light: #e7cafa;
+	--purple-core: #e79fde;
+	--purple-dark: #e6ace0;
+	--red: #e99bbd;
+	--red-dark: #e794b8;
+	--gold: #ca15be;
+}
+
+form {
+	width: 100%; height: 100%;
+	display: flex; justify-content: center; align-items: center;
+}
+symbol {overflow: visible;}
+
+legend {
+	margin: 0 0 1.5em;
+	display: block; width: 100%;
+	font-size: 1.25em; font-weight: 700; text-align: center;
+	color: var(--purple-core);
+}
+
+#avatar {
+	margin: 0 auto 1em;
+	width: 150px;
+	div {
+		position: relative;
+		width: 100%; height: 0;
+		padding-bottom: 100%;
+		svg {
+			position: absolute; 
+			width: 100%; height: 100%;
+			overflow: visible;
+		}
+	}
+}
+
+input[type="radio"] {
+	/* Visually hide radio buttons while still allowing them to receive keyboard focus. */
+	position: absolute; top: auto; z-index: 2;
+	width: 1.5em; height: 2em;
+	-webkit-appearance: none; -moz-appearance: none; appearance: none;
+	opacity: .0001;
+}
+
+.rate-radio {
+	margin: 0 .5em 0 0;
+	position: relative;	
+	display: inline-block; vertical-align: top;
+	color: #2a2a2a; line-height: 1;
+	&:last-of-type {margin-right: 0;}
+	svg {
+		display: block;
+		width: 3em; height: 2.85em;
+		fill: var(--purple-bare);
+		stroke: #000; stroke-width: 3px; stroke-linejoin: round;
+		transform: scale(.625);
+		transition: transform .2s ease-in-out;
+		overflow: visible;
+	}
+	span {
+		padding: .4em .5em;	
+		position: absolute; left: 50%; top: 100%;
+		background: #333; border: solid 2px var(--purple-dark); border-radius: .25em;
+		color: #fff; font-size: .8em; font-weight: 600;
+		text-align: center; white-space: nowrap;	
+		opacity: 0;
+		transform: translateY(.5em) translateX(-50%) scale(0);
+		transition:
+			opacity .25s ease-in-out,
+			transform .25s ease-in-out
+		;
+		&::before {
+			content: "";
+			position: absolute; top: 0; left: 0; z-index: -1;
+			width: 100%; height: 100%;
+			border-radius: inherit;
+			background: var(--purple-core);
+			opacity: 0;
+			transition: opacity .25s ease;
+		}
+	}
+	
+	@media (prefers-reduced-motion: reduce) {
+		svg {
+			transform: none;
+			transition: transform .5s ease-in-out;
+		}
+		span {
+			transform: translateY(.5em) translateX(-50%);
+			transition:
+				opacity .5s ease-in-out,
+				transform .5s ease-in-out
+			;
+		}
+	}
+}
+.rate-radio--none {
+	svg {
+		width: 2.85em; height: 2.85em;
+		fill: #FFF; stroke: var(--red-dark);
+	}
+	span {}
+}
+
+input:focus + .rate-radio {
+	outline: dotted .25em #CCC; outline-offset: .5em;
+}
+
+fieldset:not([disabled]) input:not([disabled]):hover + .rate-radio span,
+.rate-radio:hover span,
+input:focus + .rate-radio span {
+	opacity: 1;
+	transform: translateY(.5em) translateX(-50%) scale(1);
+}
+
+fieldset:not([disabled]) input:not([disabled]):checked + .rate-radio span,
+.rate-radio:checked span,
+input:checked + .rate-radio span {
+	opacity: 1;
+	background: var(--purple-core);
+	transform: translateY(.5em) translateX(-50%) scale(1);
+	&::before {opacity: 1;}
+}
+
+input:checked + .rate-radio span {
+	background: #333;
+	border: 2px solid var(--purple-dark);
+}
+
+input:checked + .rate-radio--none span {
+	
+}
+
+/**
+* Set any rating icon that appears in the DOM, AFTER the checked input as appearing unselected.
+* If no input was checked by default, the first radio item will be auto selected, and that's the "none" option
+*/
+input:checked ~ .rate-radio svg {
+	fill: var(--purple-bare);
+	transform: scale(.625);
+	@media (prefers-reduced-motion: reduce) {
+		transform: none;
+	}
+}
+
+/**
+* If the no-rating option isn't checked get it to look all unselected again
+*/
+input:not(:checked) ~ .rate-radio--none svg {
+	fill: var(--purple-dark);
+	transform: scale(.625);
+	@media (prefers-reduced-motion: reduce) {
+		transform: none;
+	}
+}
+
+
+/**
+* The selectors that create the "selected" styling for the actual checked input, and the inputs previous to it in the DOM.
+*/
+.rate-radio svg, 
+input:checked + .rate-radio svg {
+	fill: var(--gold); stroke: var(--purple-dark);
+	transform: scale(1) translateY(-.25em);
+	@media (prefers-reduced-motion: reduce) {
+		transform: none;
+	}
+}
+
+/**
+* Coloring for when the "no rating" selection is currently active
+*/
+input:checked + .rate-radio--none svg {
+	fill: var(--red); stroke: var(--red-dark);
+	transform: scale(1);
+}
+
+
+
+		  
+		  </style>
+		<!-- 
+    - google font link
+  -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bangers&family=Carter+One&family=Nunito+Sans:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- 
+    - preload images
+  -->
+		<link rel="preload" as="image" href="./assets/images/cover3.png" />
+	</head>
+
+	<body id="top">
+		<!-- 
+    - #HEADER
+  -->
+
+
+		<header class="header" data-header>
+			<div class="container">
+				<button
+					class="nav-toggle-btn"
+					aria-label="toggle manu"
+					data-nav-toggler
+				>
+					<ion-icon
+						name="menu-outline"
+						aria-hidden="true"
+						class="menu-icon"
+					></ion-icon>
+					<ion-icon
+						name="close-outline"
+						aria-label="true"
+						class="close-icon"
+					></ion-icon>
+				</button>
+
+				<a href="#" class="logo">Oinkly</a>
+
+				<nav class="navbar" data-navbar>
+					<ul class="navbar-list">
+						<li class="navbar-item">
+							<a href="buyer.html" class="navbar-link" data-nav-link>Home</a>
+						</li>
+
+						<li class="navbar-item">
+							<a href="buyer.html" class="navbar-link" data-nav-link>Shop</a>
+						</li>
+
+						<li class="navbar-item">
+							<a href="buyer.html" class="navbar-link" data-nav-link>Category</a>
+						</li>
+
+						<li class="navbar-item">
+							<a href="#aboutus" class="navbar-link" data-nav-link>About Us</a>
+						</li>
+
+						<li class="navbar-item">
+							<a href="#contactus" class="navbar-link" data-nav-link
+								>Contact Us</a
+							>
+						</li>
+					</ul>
+				</nav>
+
+				<div class="header-actions">
+					<div class="search-container" id="searchContainer">
+						<input
+							type="text"
+							class="search-bar"
+							id="searchBar"
+							placeholder="Search..."
+						/>
+					</div>
+
+					<button class="action-btn" aria-label="Search">
+						<ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+					</button>
+
+					<button class="action-btn" aria-label="User" id="userProfileButton">
+						<ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+					</button>
+
+					<button class="action-btn" aria-label="cart" id="cartButton">
+						<ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+
+						<span class="btn-badge" id="cartBadge">0</span>
+					</button>
+				</div>
+			</div>
+		</header>
+
+		<!-- 
+    - #CART MODAL
+  -->
+
+		<div id="cartModal" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>Cart</h2>
+				<ul id="cartItems"></ul>
+				<p>Total: <span id="cartTotal">0</span></p>
+				<button id="checkoutBtn">Proceed to Checkout</button>
+			</div>
+		</div>
+
+		<div id="searchModal" class="modal" style="display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
+			<div class="modal-content" style="background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%;">
+				<span class="close" style="color: #aaaaaa; float: right; font-size: 28px; font-weight: bold;" onclick="closeModal()">&times;</span>
+				<h2>Search</h2>
+				<input type="text" id="searchInputModal" placeholder="Search..." style="margin-bottom: 10px; width: 100%; box-sizing: border-box; padding: 10px;">
+				<button id="searchButtonModal" style="background-color: blue; color: white; border: none; padding: 10px 20px; cursor: pointer;" onclick="redirectToBuyerPage()">Search</button>
+			</div>
+		</div>
+
+		<div id="profileModal" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<h2>User Profile</h2>
+				<!-- Your profile content here -->
+				<button id="logoutButton" style="background-color: blue; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">Logout</button>
+			</div>
+		</div>
+
+		<main>
+
+		<main>
+			<article>
+				<!-- 
+        - #HERO
+      -->
+
+				<section
+					class="section hero has-bg-image"
+					id="home"
+					aria-label="home"
+					style="background-image: url('./assets/images/cover1.png')"
+				>
+					<div class="container"></div>
+				</section>
+
+
+
+
+                
+                <div id="app">
+                    <article class="order-tracker">
+                      <section class="order-info">
+                        <div class="order-info__number">
+                          <span>Order</span>
+                          <a href="/" class="order-number__number">#Y34XDHR</a>
+                        </div>
+                        
+                        <div class="order-info__details">
+                          <span class="order-info__details__arrival-date">Expected Arrival 12/1/24</span>
+                          <span class="order-info__details__tracking-number">Shipping No. <a href="/">24339482904809482</a></span>
+                        </div>
+                      </section>
+                      
+                      <section class="order-status__progress">
+                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 562.4 38.21">
+                          <defs>
+                            <style>
+                              .cls-1 {
+                                fill: #f19cd1;
+                              }
+                  
+                              .cls-2, .cls-3, .cls-5 {
+                                fill: none;
+                                stroke-miterlimit: 10;
+                              }
+                  
+                              .cls-2, .cls-5 {
+                                stroke: #fff;
+                              }
+                  
+                              .cls-2 {
+                                stroke-width: 3px;
+                              }
+                  
+                              .cls-3 {
+                                stroke: #e670bd;
+                                stroke-width: 20px;
+                              }
+                  
+                              .cls-4 {
+                                fill: #e670bd;
+                              }
+                  
+                              .cls-5 {
+                                stroke-width: 2.64px;
+                              }
+                            </style>
+                          </defs>
+                          <title>progress-bar</title>
+                          <path class="cls-1" d="M551.34,4.89A19,19,0,0,0,535,14.22H358.34a19,19,0,0,0-32.67,0H200.12a19,19,0,0,0-32.67,0H43.34a19,19,0,1,0-.4,20H167.85a19,19,0,0,0,31.86,0H326.08a19,19,0,0,0,31.86,0H535.41A19,19,0,1,0,551.34,4.89Z" transform="translate(-8.01 -4.87)"/>
+                          <circle class="cls-2" cx="175.8" cy="19.21" r="10.11"/>
+                          <circle class="cls-2" cx="334.04" cy="19.06" r="10.11"/>
+                          <circle class="cls-2" cx="19.06" cy="19.13" r="10.11"/>
+                          <circle class="cls-2" cx="543.4" cy="19" r="10.11"/>
+                          <line class="cls-3 progress-bar" x1="8.98" y1="19.47" x2="554.76" y2="19.47"/>
+                          <g>
+                            <circle class="cls-4 overlay-check-bubble processed" cx="19.06" cy="19.13" r="19"/>
+                            <g>
+                              <path class="cls-5 checkmark processed" d="M36.75,24a9.67,9.67,0,1,1-5.91-8.92" transform="translate(-8.01 -4.87)"/>
+                              <polyline class="cls-5 checkmark processed" points="15.34 17.83 19.04 21.68 27.45 12.46"/>
+                            </g>
+                          </g>
+                          <g>
+                            <circle class="cls-4 overlay-check-bubble shipped" cx="175.8" cy="19.21" r="19"/>
+                            <g>
+                              <path class="cls-5 checkmark shipped" d="M193.49,24.08a9.67,9.67,0,1,1-5.91-8.92" transform="translate(-8.01 -4.87)"/>
+                              <polyline class="cls-5 checkmark shipped" points="172.08 17.91 175.78 21.76 184.18 12.54"/>
+                            </g>
+                          </g>
+                          <g>
+                            <circle class="cls-4 overlay-check-bubble enroute" cx="334.04" cy="19.06" r="19"/>
+                            <g>
+                              <path class="cls-5 checkmark enroute" d="M351.73,23.93A9.67,9.67,0,1,1,345.82,15" transform="translate(-8.01 -4.87)"/>
+                              <polyline class="cls-5 checkmark enroute" points="330.31 17.76 334.02 21.61 342.42 12.39"/>
+                            </g>
+                          </g>
+                          <g>
+                            <circle class="cls-4 overlay-check-bubble arrived" cx="543.4" cy="19" r="19"/>
+                            <g>
+                              <path class="cls-5 checkmark arrived" d="M561.09,23.87a9.67,9.67,0,1,1-5.91-8.92" transform="translate(-8.01 -4.87)"/>
+                              <polyline class="cls-5 checkmark arrived" points="539.68 17.7 543.38 21.55 551.78 12.33"/>
+                            </g>
+                          </g>
+                        </svg>
+                  
+                      </section>
+                      
+                      <section class="order-status__status-info">
+                        
+                        <ol>
+                          <li class="order-status__status-info__step">
+                            <div class="icon">
+                              <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%"
+                                 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                                <g>
+                                  <g>
+                                    <path d="M400.292,32.064h-48.613v-5.276c0-12.572-18.105-17.987-31.724-20.966C302.789,2.068,280.076,0,256,0
+                                      s-46.789,2.068-63.954,5.823c-13.619,2.979-31.724,8.394-31.724,20.966v5.276h-48.613c-21.816,0-39.564,17.749-39.564,39.565
+                                      v400.806c0,21.816,17.749,39.564,39.564,39.564H400.29c21.816,0,39.564-17.749,39.564-39.564V71.629
+                                      C439.856,49.813,422.107,32.064,400.292,32.064z M175.324,27.751C179.771,23.209,207.419,15,256,15
+                                      c48.582,0,76.229,8.209,80.677,12.751v35.862c0,0.285-0.231,0.516-0.516,0.516H175.839c-0.285,0-0.516-0.232-0.516-0.516V27.751z
+                                       M400.292,497H111.709c-13.545,0-24.564-11.02-24.564-24.564V71.629c0-13.545,11.02-24.565,24.564-24.565h48.613v16.548
+                                      c0,8.556,6.96,15.516,15.516,15.516h160.322c8.556,0,15.516-6.961,15.516-15.516V47.064h48.613
+                                      c13.545,0,24.564,11.02,24.564,24.565v400.807h0.002C424.856,485.981,413.836,497,400.292,497z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path d="M392.274,64.129h-16.033c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h16.033c0.285,0,0.516,0.231,0.516,0.516
+                                      v352.709c0,0.285-0.231,0.516-0.516,0.516H119.727c-0.285,0-0.516-0.231-0.516-0.516V79.645c0-0.285,0.231-0.516,0.516-0.516
+                                      h16.033c4.142,0,7.5-3.358,7.5-7.5c0-4.142-3.358-7.5-7.5-7.5h-16.033c-8.556,0-15.516,6.96-15.516,15.516v352.709
+                                      c0,8.556,6.96,15.516,15.516,15.516h272.549c8.556,0,15.516-6.96,15.516-15.516V79.645
+                                      C407.792,71.09,400.831,64.129,392.274,64.129z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M183.855,128.259c-12.975,0-23.532,10.557-23.532,23.532c0,12.975,10.556,23.532,23.532,23.532
+                                      c12.976,0,23.532-10.557,23.532-23.532C207.388,138.816,196.831,128.259,183.855,128.259z M183.855,160.322
+                                      c-4.704,0-8.532-3.828-8.532-8.532s3.827-8.532,8.532-8.532c4.705,0,8.532,3.828,8.532,8.532S188.56,160.322,183.855,160.322z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M344.178,128.258H231.953c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h112.226c4.142,0,7.5-3.358,7.5-7.5
+                                      C351.678,131.616,348.32,128.258,344.178,128.258z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M239.969,160.323h-8.016c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h8.016c4.142,0,7.5-3.358,7.5-7.5
+                                      C247.469,163.681,244.11,160.323,239.969,160.323z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M304.096,160.323h-32.064c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h32.064c4.142,0,7.5-3.358,7.5-7.5
+                                      C311.596,163.681,308.239,160.323,304.096,160.323z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M183.855,200.404c-12.975,0-23.532,10.557-23.532,23.532c0,12.975,10.556,23.532,23.532,23.532
+                                      c12.976,0,23.532-10.557,23.532-23.532C207.388,210.961,196.831,200.404,183.855,200.404z M183.855,232.467
+                                      c-4.704,0-8.532-3.828-8.532-8.532s3.827-8.532,8.532-8.532c4.705,0,8.532,3.828,8.532,8.532S188.56,232.467,183.855,232.467z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M344.178,200.403H231.953c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h112.226c4.142,0,7.5-3.358,7.5-7.5
+                                      C351.678,203.761,348.32,200.403,344.178,200.403z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M239.969,232.468h-8.016c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h8.016c4.142,0,7.5-3.358,7.5-7.5
+                                      C247.469,235.826,244.11,232.468,239.969,232.468z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M304.096,232.468h-32.064c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h32.064c4.142,0,7.5-3.358,7.5-7.5
+                                      C311.596,235.826,308.239,232.468,304.096,232.468z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M183.855,272.549c-12.975,0-23.532,10.557-23.532,23.532c0,12.975,10.556,23.532,23.532,23.532
+                                      c12.976,0,23.532-10.557,23.532-23.532C207.388,283.106,196.831,272.549,183.855,272.549z M183.855,304.612
+                                      c-4.704,0-8.532-3.828-8.532-8.532c0-4.704,3.827-8.532,8.532-8.532c4.705,0,8.532,3.828,8.532,8.532
+                                      C192.388,300.784,188.56,304.612,183.855,304.612z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M344.178,272.548H231.953c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h112.226c4.142,0,7.5-3.358,7.5-7.5
+                                      C351.678,275.906,348.32,272.548,344.178,272.548z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M239.969,304.613h-8.016c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h8.016c4.142,0,7.5-3.358,7.5-7.5
+                                      C247.469,307.971,244.11,304.613,239.969,304.613z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M304.096,304.613h-32.064c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h32.064c4.142,0,7.5-3.358,7.5-7.5
+                                      C311.596,307.971,308.239,304.613,304.096,304.613z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M183.855,344.694c-12.975,0-23.532,10.557-23.532,23.532c0,12.975,10.556,23.532,23.532,23.532
+                                      c12.976,0,23.532-10.557,23.532-23.532C207.388,355.251,196.831,344.694,183.855,344.694z M183.855,376.758
+                                      c-4.704,0-8.532-3.828-8.532-8.532c0-4.704,3.827-8.532,8.532-8.532c4.705,0,8.532,3.828,8.532,8.532
+                                      C192.388,372.93,188.56,376.758,183.855,376.758z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M344.178,344.694H231.953c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h112.226c4.142,0,7.5-3.358,7.5-7.5
+                                      C351.678,348.052,348.32,344.694,344.178,344.694z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M239.969,376.758h-8.016c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h8.016c4.142,0,7.5-3.358,7.5-7.5
+                                      C247.469,380.116,244.11,376.758,239.969,376.758z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M304.096,376.758h-32.064c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h32.064c4.142,0,7.5-3.358,7.5-7.5
+                                      C311.596,380.116,308.239,376.758,304.096,376.758z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path d="M256.041,32.064h-0.08c-4.142,0-7.46,3.358-7.46,7.5c0,4.142,3.398,7.5,7.54,7.5c4.142,0,7.5-3.358,7.5-7.5
+                                      C263.541,35.422,260.182,32.064,256.041,32.064z"/>
+                                  </g>
+                                </g>
+                              </svg>
+                            </div>
+                            <div class="status">
+                              <span>Order</span>
+                              <span>Processed</span>
+                            </div>
+                          </li>
+                          <li class="order-status__status-info__step">
+                            <div class="icon">
+                              <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%"
+                       viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                                <g>
+                                  <g>
+                                    <path d="M491.729,112.971L259.261,0.745c-2.061-0.994-4.461-0.994-6.521,0L20.271,112.971c-2.592,1.251-4.239,3.876-4.239,6.754
+                                      v272.549c0,2.878,1.647,5.503,4.239,6.754l232.468,112.226c1.03,0.497,2.146,0.746,3.261,0.746s2.23-0.249,3.261-0.746
+                                      l232.468-112.226c2.592-1.251,4.239-3.876,4.239-6.754V119.726C495.968,116.846,494.32,114.223,491.729,112.971z M256,15.828
+                                      l215.217,103.897l-62.387,30.118c-0.395-0.301-0.812-0.579-1.27-0.8L193.805,45.853L256,15.828z M176.867,54.333l214.904,103.746
+                                      l-44.015,21.249L132.941,75.624L176.867,54.333z M396.799,172.307v78.546l-41.113,19.848v-78.546L396.799,172.307z
+                                       M480.968,387.568L263.5,492.55V236.658l51.873-25.042c3.73-1.801,5.294-6.284,3.493-10.015
+                                      c-1.801-3.729-6.284-5.295-10.015-3.493L256,223.623l-20.796-10.04c-3.731-1.803-8.214-0.237-10.015,3.493
+                                      c-1.801,3.73-0.237,8.214,3.493,10.015l19.818,9.567V492.55L31.032,387.566V131.674l165.6,79.945
+                                      c1.051,0.508,2.162,0.748,3.255,0.748c2.788,0,5.466-1.562,6.759-4.241c1.801-3.73,0.237-8.214-3.493-10.015l-162.37-78.386
+                                      l74.505-35.968L340.582,192.52c0.033,0.046,0.07,0.087,0.104,0.132v89.999c0,2.581,1.327,4.98,3.513,6.353
+                                      c1.214,0.762,2.599,1.147,3.988,1.147c1.112,0,2.227-0.247,3.26-0.746l56.113-27.089c2.592-1.251,4.239-3.875,4.239-6.754v-90.495
+                                      l69.169-33.392V387.568z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M92.926,358.479L58.811,342.01c-3.732-1.803-8.214-0.237-10.015,3.493c-1.801,3.73-0.237,8.214,3.493,10.015
+                                      l34.115,16.469c1.051,0.508,2.162,0.748,3.255,0.748c2.788,0,5.466-1.562,6.759-4.241
+                                      C98.22,364.763,96.656,360.281,92.926,358.479z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M124.323,338.042l-65.465-31.604c-3.731-1.801-8.214-0.237-10.015,3.494c-1.8,3.73-0.236,8.214,3.494,10.015
+                                      l65.465,31.604c1.051,0.507,2.162,0.748,3.255,0.748c2.788,0,5.466-1.562,6.759-4.241
+                                      C129.617,344.326,128.053,339.842,124.323,338.042z"/>
+                                  </g>
+                                </g>
+                              </svg>
+                            </div>
+                            <div class="status">
+                              <span>Order</span>
+                              <span>Shipped</span>
+                            </div>
+                          </li>
+                          <li class="order-status__status-info__step">
+                            <div class="icon">
+                              <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%"
+                                 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                                <g>
+                                  <g>
+                                    <path d="M111.709,344.693c-8.556,0-15.516,6.96-15.516,15.516c0,8.556,6.96,15.516,15.516,15.516
+                                      c8.556,0,15.516-6.96,15.516-15.516C127.225,351.653,120.265,344.693,111.709,344.693z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path d="M432.355,344.693c-8.556,0-15.516,6.96-15.516,15.516c0,8.556,6.96,15.516,15.516,15.516
+                                      c8.556,0,15.516-6.96,15.516-15.516C447.871,351.653,440.911,344.693,432.355,344.693z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path d="M495.909,245.23l-57.744-19.248l-26.989-74.218c-3.369-9.265-12.256-15.49-22.115-15.49h-69.448v-16.549
+                                      c0-8.556-6.96-15.516-15.516-15.516H15.516C6.96,104.209,0,111.17,0,119.726v216.436c0,8.556,6.96,15.516,15.516,15.516H64.91
+                                      c-0.504,2.77-0.781,5.619-0.781,8.532c0,26.236,21.345,47.581,47.581,47.581s47.581-21.345,47.581-47.581
+                                      c0-2.914-0.277-5.762-0.781-8.532h227.047c-0.504,2.77-0.781,5.619-0.781,8.532c0,26.236,21.345,47.581,47.581,47.581
+                                      c26.236,0,47.581-21.345,47.581-47.581c0-3.706-0.44-7.31-1.245-10.774l15.871-7.935C505.318,336.122,512,325.309,512,313.282
+                                      v-45.727C512,257.411,505.534,248.439,495.909,245.23z M15,119.726c0-0.285,0.231-0.517,0.516-0.517h288.581
+                                      c0.285,0,0.516,0.231,0.516,0.516v160.839H15V119.726z M111.709,392.791c-17.965,0-32.581-14.616-32.581-32.581
+                                      c0-17.965,14.616-32.581,32.581-32.581c17.965,0,32.581,14.616,32.581,32.581C144.291,378.175,129.675,392.791,111.709,392.791z
+                                       M304.613,336.677H153.038c-8.203-14.349-23.65-24.048-41.329-24.048c-17.679,0-33.125,9.699-41.328,24.048H15.516
+                                      c-0.285,0-0.516-0.231-0.516-0.516v-40.597h289.613V336.677z M406.698,183.339l14.95,41.113h-16.104l-14.95-41.113H406.698z
+                                       M319.613,151.274h69.448c3.575,0,6.797,2.257,8.019,5.616l4.163,11.448h-81.63V151.274z M319.613,183.339h55.02l14.95,41.113
+                                      h-69.97V183.339z M432.355,392.791c-17.965,0-32.581-14.616-32.581-32.581c0-17.965,14.616-32.581,32.581-32.581
+                                      c17.965,0,32.581,14.616,32.581,32.581C464.936,378.175,450.32,392.791,432.355,392.791z M497,280.563h-8.532
+                                      c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5H497v17.718c0,6.31-3.505,11.981-9.147,14.803l-14.847,7.423
+                                      c-8.36-13.707-23.454-22.878-40.651-22.878c-17.679,0-33.125,9.699-41.328,24.048h-71.414v-41.113h136.791
+                                      c4.142,0,7.5-3.358,7.5-7.5c0-4.142-3.358-7.5-7.5-7.5H319.613v-41.113h111.525l60.028,20.009c3.49,1.163,5.834,4.416,5.834,8.094
+                                      V280.563z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M251.705,193.375l-56.113-32.064c-3.595-2.055-8.177-0.805-10.233,2.791c-2.055,3.597-0.806,8.178,2.791,10.233
+                                      l31.592,18.053H71.629c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.499,7.5,7.499h148.113L188.15,225.44
+                                      c-3.596,2.055-4.846,6.636-2.791,10.233c1.384,2.422,3.915,3.78,6.519,3.78c1.262,0,2.541-0.319,3.714-0.99l56.113-32.064
+                                      c2.336-1.335,3.779-3.82,3.779-6.512C255.484,197.195,254.042,194.711,251.705,193.375z"/>
+                                  </g>
+                                </g>
+                              </svg>
+                            </div>
+                            <div class="status">
+                              <span>Order</span>
+                              <span>En Route</span>
+                            </div>
+                          </li>
+                          <li class="order-status__status-info__step">
+                            <div class="icon">
+                              <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%"
+                       viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                                <g>
+                                  <g>
+                                    <path d="M488.468,448.903h-8.532V226.4C499.202,214.003,512,192.386,512,167.822c0-1.305-0.341-2.588-0.988-3.721L451.499,59.953
+                                      c-4.18-7.313-12.009-11.857-20.432-11.857H80.933c-8.423,0-16.252,4.543-20.432,11.857L0.988,164.101
+                                      C0.341,165.234,0,166.518,0,167.822c0,24.564,12.798,46.181,32.064,58.578v222.503h-8.532c-4.142,0-7.5,3.358-7.5,7.5
+                                      c0,4.142,3.358,7.5,7.5,7.5h464.936c4.143,0,7.5-3.358,7.5-7.5C495.968,452.261,492.61,448.903,488.468,448.903z M15.517,175.322
+                                      h24.044c4.142,0,7.5-3.358,7.5-7.5c0-4.142-3.358-7.5-7.5-7.5H20.424l53.101-92.927c1.516-2.652,4.354-4.299,7.408-4.299h350.134
+                                      c3.054,0,5.893,1.647,7.408,4.299l53.1,92.927h-19.141c-4.143,0-7.5,3.358-7.5,7.5c0,4.142,3.357,7.5,7.5,7.5h24.048
+                                      c-3.667,26.584-26.532,47.125-54.108,47.125c-27.575,0-50.429-20.543-54.097-47.125h52.096c4.143,0,7.5-3.358,7.5-7.5
+                                      c0-4.142-3.357-7.5-7.5-7.5H71.631c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h52.091
+                                      c-3.668,26.582-26.523,47.125-54.097,47.125C42.049,222.447,19.184,201.906,15.517,175.322z M372.222,175.322
+                                      c-3.668,26.582-26.523,47.125-54.097,47.125c-27.575,0-50.429-20.543-54.097-47.125H372.222z M247.972,175.322
+                                      c-3.668,26.582-26.523,47.125-54.097,47.125c-27.574,0-50.429-20.543-54.097-47.125H247.972z M424.854,448.904h-81.193v-25.081
+                                      h81.193V448.904z M424.854,408.823h-81.193V271.516h81.193V408.823z M464.936,448.904h-25.081V264.016c0-4.142-3.357-7.5-7.5-7.5
+                                      h-96.193c-4.143,0-7.5,3.358-7.5,7.5v184.887H47.064V233.674c7.081,2.433,14.665,3.773,22.561,3.773
+                                      c27.095,0,50.624-15.556,62.125-38.207c11.501,22.65,35.03,38.207,62.125,38.207c27.095,0,50.624-15.556,62.125-38.207
+                                      c11.501,22.65,35.03,38.207,62.125,38.207c27.095,0,50.624-15.556,62.125-38.207c11.501,22.65,35.03,38.207,62.125,38.207
+                                      c7.896,0,15.48-1.34,22.561-3.772V448.904z"/>
+                                  </g>
+                                </g>
+                                <g>
+                                  <g>
+                                    <path class="accented" d="M296.081,256.516H79.645c-4.142,0-7.5,3.358-7.5,7.5v152.307c0,4.142,3.358,7.5,7.5,7.5h216.436
+                                      c4.143,0,7.5-3.358,7.5-7.5V264.016C303.581,259.873,300.224,256.516,296.081,256.516z M288.581,408.823H87.145V271.516h201.436
+                                      V408.823z"/>
+                                  </g>
+                                </g>
+                              </svg>
+                            </div>
+                            <div class="status">
+                              <span>Order</span>
+                              <span>Arrived</span>
+                            </div>
+                          </li>
+                        </ol>
+                      </section>
+                    </article>
+                  </div>
+                  
+                  <!-- 
+                  Future buttons
+                  <div class="controls">
+                    <button id="js-processed">Processed</button>
+                    <button id="js-shipped">Ship it!</button>
+                    <button id="js-en-route">En Route</button>
+                    <button id="js-arrived">Arrived</button>
+                  </div> alien-->
+                
+
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none;">
+                    <symbol id="star" viewBox="0 0 48 45.7">
+                        <path d="M24 37.9L9.2 45.7 12 29.1 0 17.4 16.6 15 24 0l7.4 15L48 17.4 36 29.1l2.8 16.6z"/>
+                    </symbol>
+                    <symbol id="no-rating" viewBox="0 0 44 44">
+                        <path d="M22 0C9.9 0 0 9.9 0 22s9.9 22 22 22 22-9.9 22-22S34.1 0 22 0zm16 22c0 3.3-1 6.4-2.8 9L13 8.8C15.6 7 18.7 6 22 6c8.8 0 16 7.2 16 16zM6 22c0-3.3 1-6.4 2.8-9L31 35.2C28.4 37 25.3 38 22 38c-8.8 0-16-7.2-16-16z"/>
+                    </symbol>
+                </svg>
+                
+                <form action="#" method="post">
+                    <fieldset class="rate-radios">
+                        <legend>How would you rate the product?</legend>
+                
+                        <div id="avatar" aria-hidden="true" style="opacity: 0;">
+                            <div>
+                                <img src="assets/images/mangalica.png" alt="Description of your image" width="200" height="200">
+                                <defs>
+                                        <clipPath id="eye-clip">
+                                            <path id="eye-clippath" class="eye-path" fill="none" d="M211 76.91c-11.42.47-23.35.71-35.63.71s-24.21-.24-35.63-.71a39.82 39.82 0 00-4.37 18.18 40.25 40.25 0 001.16 9.57c12.39-.55 25.41-.85 38.84-.85s26.45.3 38.84.85a40.25 40.25 0 001.16-9.57A39.82 39.82 0 00211 76.91z"/>
+                                        </clipPath>
+                                        <clipPath id="mouth-clip">
+                                            <path id="mouth-clippath" class="mouth-path" fill="none" d="M147.32 165.64h56.12a8.94 8.94 0 018.94 8.94 33.06 33.06 0 01-33.06 33.06h-7.88a33.06 33.06 0 01-33.06-33.06 8.94 8.94 0 018.94-8.94z"/>
+                                        </clipPath>
+                                    </defs>
+                                    <circle cx="175" cy="175" r="175" fill="#F8EDFF"/>
+                                    <g id="ear-l">
+                                        <circle cx="66.93" cy="137.42" r="40" fill="#e7cafa" stroke="#62457a" stroke-linecap="round" stroke-width="5"/>
+                                        <path fill="#e7cafa" stroke="#62457a" stroke-linecap="round" stroke-width="5" d="M64.55 123a14.39 14.39 0 000 28.78"/>
+                                    </g>
+                                    <g id="ear-r">
+                                        <circle cx="283.07" cy="137.42" r="40" fill="#e7cafa" stroke="#62457a" stroke-linecap="round" stroke-width="5"/>
+                                        <path fill="#e7cafa" stroke="#62457a" stroke-linecap="round" stroke-width="5" d="M285.45 123a14.39 14.39 0 010 28.78"/>
+                                    </g>
+                                    <rect id="earring" width="12" height="30" x="284.65" y="169.64" fill="#faf18f" stroke="#62457a" stroke-linecap="round" stroke-width="4.73" rx="6"/>
+                                    <path id="horn-2" fill="#f0a6df" stroke="#62457a" stroke-linecap="round" stroke-width="5" d="M224.58 46.46A98.05 98.05 0 01229-1.46 3.94 3.94 0 00223-6a61.34 61.34 0 00-21.44 27.72c-.57 0-2.22 12.57 5.64 20a19.76 19.76 0 0017.38 4.74z"/>
+                                    <path id="horn-1" fill="#f0a6df" stroke="#62457a" stroke-linecap="round" stroke-width="5" d="M122.5 46.46a97.93 97.93 0 00-4.41-47.92 3.94 3.94 0 016-4.53 61.32 61.32 0 0121.43 27.72c.57 0 2.22 12.57-5.64 20a19.76 19.76 0 01-17.38 4.73z"/>
+                                    <path fill="#A45CE0" d="M275 118.7c0-54.6-44.7-101-99.3-101.3C120.1 17 75 61.9 75 117.3v44.5c0 46-9.6 91.1-27.8 132.7C79.1 328.7 124.6 350 175 350s95.9-21.3 127.8-55.5C284.6 253 275 207.8 275 161.9v-43.2z"/>
+                                    <path fill="none" stroke="#62457A" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" d="M302.8 294.5C284.6 253 275 207.8 275 161.9v-43.2c0-54.6-44.7-101-99.3-101.3C120.1 17 75 61.9 75 117.3v44.5c0 46-9.6 91.1-27.8 132.7"/>
+                                    <path id="horn-5" fill="#f0a6df" stroke="#62457a" stroke-linecap="round" stroke-width="5" d="M169.31-24.43l-8.77 51.28a15.57 15.57 0 0026 0l-8.77-51.28a4.29 4.29 0 00-8.46 0z"/>
+                                    <path id="horn-4" fill="#f0a6df" stroke="#62457a" stroke-linecap="round" stroke-width="5" d="M253.74 61.74c2.54-14.44 6.9-25.16 15.5-36.94a4 4 0 00-4.52-6c-11.41 3.88-26.8 15.66-34.48 25.2a15.39 15.39 0 004.39 16 24.18 24.18 0 0013.12 6.1 5.3 5.3 0 005.99-4.36z"/>
+                                    <path id="horn-3" fill="#f0a6df" stroke="#62457a" stroke-linecap="round" stroke-width="5" d="M93.34 61.74c-2.54-14.44-6.9-25.16-15.5-36.94a4 4 0 014.52-6c11.41 3.88 26.8 15.66 34.48 25.2a15.39 15.39 0 01-4.39 16 24.18 24.18 0 01-13.12 6.1 5.3 5.3 0 01-5.99-4.36z"/>
+                                    <g id="nose">
+                                        <circle cx="168.38" cy="147.81" r="3.5" fill="#62457a"/>
+                                        <circle cx="182.38" cy="147.81" r="3.5" fill="#62457a"/>
+                                    </g>
+                                    <path id="chin" fill="#a45ce0" stroke="#62457a" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" d="M150.38 215.64a12.59 12.59 0 0011.87 8.36h1.26a12.59 12.59 0 0011.87-8.39 12.59 12.59 0 0011.87 8.39h1.26a12.59 12.59 0 0011.87-8.39"/>
+                                    <path id="eye-bg" class="eye-path" fill="#fff" d="M211 76.91c-11.42.47-23.35.71-35.63.71s-24.21-.24-35.63-.71a39.82 39.82 0 00-4.37 18.18 40.25 40.25 0 001.16 9.57c12.39-.55 25.41-.85 38.84-.85s26.45.3 38.84.85a40.25 40.25 0 001.16-9.57A39.82 39.82 0 00211 76.91z"/>
+                                    <g id="eye" clip-path="url(#eye-clip)">
+                                        <g id="pupil">
+                                            <circle cx="175.38" cy="95.09" r="25" fill="#ace4eb"/>
+                                            <circle cx="175.38" cy="95.09" r="15" fill="#62457a"/>
+                                            <circle cx="168.95" cy="84.37" r="4.29" fill="#fff"/>
+                                        </g>
+                                    </g>
+                                    <path id="eye-outline" class="eye-path" fill="none" stroke="#62457a" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" d="M211 76.91c-11.42.47-23.35.71-35.63.71s-24.21-.24-35.63-.71a39.82 39.82 0 00-4.37 18.18 40.25 40.25 0 001.16 9.57c12.39-.55 25.41-.85 38.84-.85s26.45.3 38.84.85a40.25 40.25 0 001.16-9.57A39.82 39.82 0 00211 76.91z"/>
+                                    <path id="mouth-bg" class="mouth-path" fill="#775196" d="M179.32 207.64h-7.88a33 33 0 01-33.06-33.06 8.94 8.94 0 018.94-8.94h56.12a8.94 8.94 0 018.94 8.94 33 33 0 01-33.06 33.06z"/>
+                                    <g id="mouth" clip-path="url(#mouth-clip)">
+                                        <g id="tongue">
+                                            <circle cx="175.61" cy="204.34" r="16" fill="#e3468a"/>
+                                            <ellipse cx="175.61" cy="191.34" fill="#fff" opacity=".1" rx="6" ry="3"/>
+                                        </g>
+                                        <path id="tooth-bot" fill="#fff" d="M160.95 200.64h4a4 4 0 014 4v7h-12v-7a4 4 0 014-4z"/>
+                                        <path id="tooth-top" fill="#fff" d="M177.95 161.64h16v9a4 4 0 01-4 4h-8a4 4 0 01-4-4v-9z"/>
+                                    </g>
+                                    <path id="mouth-outline" class="mouth-path" fill="none" stroke="#62457a" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" d="M179.32 207.64h-7.88a33 33 0 01-33.06-33.06h0a8.94 8.94 0 018.94-8.94h56.12a8.94 8.94 0 018.94 8.94h0a33 33 0 01-33.06 33.06z"/>
+                                </svg>
+                            </div>
+                            </div>
+                        
+                        <input checked type="radio" name="rate-input" id="rate-input_0" data-num="0">
+                        <label for="rate-input_0" class="rate-radio rate-radio--none">
+                            <svg aria-hidden="true" focusable="false">
+                                <use xlink:href="#no-rating"/>
+                            </svg>
+                            <span role="presentation">No rating</span>
+                        </label>
+                
+                        <input type="radio" name="rate-input" id="rate-input_1" data-num="1">
+                        <label for="rate-input_1" class="rate-radio">
+                            <svg aria-hidden="true" focusable="false">
+                                <use xlink:href="#star"/>
+                            </svg>
+                            <span role="presentation">1 Star</span>
+                        </label>
+                
+                        <input type="radio" name="rate-input" id="rate-input_2" data-num="2">
+                        <label for="rate-input_2" class="rate-radio">
+                            <svg aria-hidden="true" focusable="false">
+                                <use xlink:href="#star"/>
+                            </svg>
+                            <span role="presentation">2 Stars</span>
+                        </label>
+                
+                        <input type="radio" name="rate-input" id="rate-input_3" data-num="3">
+                        <label for="rate-input_3" class="rate-radio">
+                            <svg aria-hidden="true" focusable="false">
+                                <use xlink:href="#star"/>
+                            </svg>
+                            <span role="presentation">3 Stars</span>
+                        </label>
+                
+                        <input type="radio" name="rate-input" id="rate-input_4" data-num="4">
+                        <label for="rate-input_4" class="rate-radio">
+                            <svg aria-hidden="true" focusable="false">
+                                <use xlink:href="#star"/>
+                            </svg>
+                            <span role="presentation">4 Stars</span>
+                        </label>
+                
+                        <input type="radio" name="rate-input" id="rate-input_5" data-num="5">
+                        <label for="rate-input_5" class="rate-radio">
+                            <svg aria-hidden="true" focusable="false">
+                                <use xlink:href="#star"/>
+                            </svg>
+                            <span role="presentation">5 Stars</span>
+                        </label>
+                    </fieldset>
+                </form>
+                  
+        
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+				<!-- 
+       
+        - #SERVICE
+      -->
+
+				<section class="section service" id="aboutus" aria-label="service">
+					<div class="container">
+						<img
+							src="./assets/images/tagline.png"
+							width="122"
+							height="136"
+							loading="lazy"
+							alt=""
+							class="img"
+						/>
+
+						<h2 class="h2 section-title">
+							<span class="span">Oinkly ,</span> Products and Services.
+						</h2>
+
+						<ul class="grid-list">
+							<li>
+								<div class="service-card">
+									<figure class="card-icon">
+										<img
+											src="./assets/images/service-icon-1.png"
+											width="70"
+											height="70"
+											loading="lazy"
+											alt="service icon"
+										/>
+									</figure>
+
+									<h3 class="h3 card-title">Door-to-Door Delivery</h3>
+
+									<p class="card-text">
+										Enjoy ordering pigs without no hassle on transportation.
+									</p>
+								</div>
+							</li>
+
+							<li>
+								<div class="service-card">
+									<figure class="card-icon">
+										<img
+											src="./assets/images/service-icon-2.png"
+											width="70"
+											height="70"
+											loading="lazy"
+											alt="service icon"
+										/>
+									</figure>
+
+									<h3 class="h3 card-title">Collection of Pigs</h3>
+
+									<p class="card-text">
+										Buy Pigs either for breeding of for culinary preparation.
+									</p>
+								</div>
+							</li>
+
+							<li>
+								<div class="service-card">
+									<figure class="card-icon">
+										<img
+											src="./assets/images/service-icon-3.png"
+											width="70"
+											height="70"
+											loading="lazy"
+											alt="service icon"
+										/>
+									</figure>
+
+									<h3 class="h3 card-title">Secure Payment</h3>
+
+									<p class="card-text">
+										Pay at Oinkly only. No third-party involved.
+									</p>
+								</div>
+							</li>
+
+							<li>
+								<div class="service-card">
+									<figure class="card-icon">
+										<img
+											src="./assets/images/service-icon-4.png"
+											width="70"
+											height="70"
+											loading="lazy"
+											alt="service icon"
+										/>
+									</figure>
+
+									<h3 class="h3 card-title">24/7 Support</h3>
+
+									<p class="card-text">
+										Shop online here at Oinkly to get your orders. We will ship
+										it immediately.
+									</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</article>
+		</main>
+
+		<!-- 
+    - #FOOTER
+  -->
+
+		<footer
+			class="footer"
+			style="background-image: url('./assets/images/footer-bg.jpg')"
+		>
+			<div class="footer-top section" id="contactus">
+				<div class="container">
+					<div class="footer-brand">
+						<a href="#" class="logo">Oinkly</a>
+
+						<p class="footer-text">
+							If you have any question, please contact me at
+							<a href="mailto:clairenakila18@gmail.com" class="link"
+								>clairenakila18@gmail.com</a
+							>
+						</p>
+
+						<ul class="contact-list">
+							<li class="contact-item">
+								<ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+
+								<address class="address">
+									Alegria Surigao del Norte, Philippines
+								</address>
+							</li>
+
+							<li class="contact-item">
+								<ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+
+								<a href="tel:+639703738501" class="contact-link"
+									>(+63) 9703738501</a
+								>
+							</li>
+						</ul>
+
+						<ul class="social-list">
+							<li>
+								<a href="#" class="social-link">
+									<ion-icon name="logo-facebook"></ion-icon>
+								</a>
+							</li>
+
+							<li>
+								<a href="#" class="social-link">
+									<ion-icon name="logo-twitter"></ion-icon>
+								</a>
+							</li>
+
+							<li>
+								<a href="#" class="social-link">
+									<ion-icon name="logo-pinterest"></ion-icon>
+								</a>
+							</li>
+
+							<li>
+								<a href="#" class="social-link">
+									<ion-icon name="logo-instagram"></ion-icon>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<ul class="footer-list">
+						<li>
+							<p class="footer-list-title">Corporate</p>
+						</li>
+
+						<li>
+							<a href="#" class="footer-link">Careers</a>
+						</li>
+
+						<li>
+							<a href="#" class="footer-link">About Us</a>
+						</li>
+
+						<li>
+							<a href="#" class="footer-link">Contact Us</a>
+						</li>
+
+						<li>
+							<a href="#" class="footer-link">FAQs</a>
+						</li>
+
+						<li>
+							<a href="#" class="footer-link">Suppliers</a>
+						</li>
+
+						<li>
+							<a href="#" class="footer-link">Affiliate Program</a>
+						</li>
+					</ul>
+
+					<ul class="footer-list">
+						<li>
+							<p class="footer-list-title">Information</p>
+						</li>
+
+						<li>
+							<a href="#" class="footer-link">Online Store</a>
+						</li>
+
+						<li>
+							<a href="#" class="footer-link">Privacy Policy</a>
+						</li>
+
+						<li>
+							<a href="#" class="footer-link">Refund Policy</a>
+						</li>
+
+						<li>
+							<a href="#" class="footer-link">Shipping Policy</a>
+						</li>
+
+						<li>
+							<a href="#" class="footer-link">Terms of Service</a>
+						</li>
+
+						<li>
+							<a href="#" class="footer-link">Track Order</a>
+						</li>
+					</ul>
+
+					<ul class="footer-list">
+						<li>
+							<p class="footer-list-title">Services</p>
+						</li>
+
+						<li>
+							<a href="#" class="footer-link">Pig Marketplace</a>
+						</li>
+
+						<li>
+							<a href="#" class="footer-link">Door-to-Door Delivery</a>
+						</li>
+
+						<li>
+							<a href="#" class="footer-link"></a>
+						</li>
+
+						<li>
+							<a href="#" class="footer-link">Order Insurance</a>
+						</li>
+
+						<li>
+							<a href="#" class="footer-link">Secure Transaaction</a>
+						</li>
+
+						<li>
+							<a href="#" class="footer-link">Resource Center</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<div class="container">
+					<p class="copyright">
+						&copy; Nakila Company, All Rights Reserved
+						<a href="#" class="copyright-link">|Powered by Oinkly</a>
+					</p>
+
+					<img
+						src="./assets/images/payment.png"
+						width="397"
+						height="32"
+						loading="lazy"
+						alt="payment method"
+						class="img"
+					/>
+				</div>
+			</div>
+		</footer>
+
+		<!-- 
+    - #BACK TO TOP
+  -->
+
+		<a
+			href="#top"
+			class="back-top-btn"
+			aria-label="back to top"
+			data-back-top-btn
+		>
+			<ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+		</a>
+
+		<!-- 
+    - custom js link
+  -->
+		<!-- <script src="./assets/js/script.js" defer></script> -->
+
+		<!-- 
+    - ionicon link
+  -->
+		<script>
+			document
+				.getElementById("cartButton")
+				.addEventListener("click", function () {
+					openCartModal();
+				});
+
+			document.querySelector(".close").addEventListener("click", function () {
+				closeCartModal();
+			});
+
+			function openCartModal() {
+				const modal = document.getElementById("cartModal");
+				modal.style.display = "block";
+				displayCartItems();
+			}
+
+			function closeCartModal() {
+				const modal = document.getElementById("cartModal");
+				modal.style.display = "none";
+			}
+
+			function displayCartItems() {
+				const cartItems = document.getElementById("cartItems");
+				cartItems.innerHTML = "";
+				let totalPrice = 0;
+
+				cart.forEach((item) => {
+					const listItem = document.createElement("li");
+					listItem.textContent = `${item.productName} - ₱${item.price}`;
+					cartItems.appendChild(listItem);
+					totalPrice += parseFloat(item.price);
+				});
+
+				document.getElementById("cartTotal").textContent =
+					totalPrice.toFixed(2);
+			}
+
+		
+			document.getElementById("checkoutBtn").addEventListener("click", function () {
+    const totalAmount = parseFloat(
+        document.getElementById("cartTotal").textContent
+    );
+    alert(`Add Shipping Address! Total amount: ₱${totalAmount.toFixed(2)}`);
+
+    // Redirect to address.html
+    window.location.href = "address.html";
+
+    // Clear cart and perform other necessary actions
+    cart = [];
+    updateCartBadge();
+    closeCartModal();
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+        const userProfileButton = document.getElementById("userProfileButton");
+        const profileModal = document.getElementById("profileModal");
+        const closeButton = profileModal.querySelector(".close");
+        const logoutButton = profileModal.querySelector("#logoutButton");
+
+        userProfileButton.addEventListener("click", function() {
+            profileModal.style.display = "block";
+        });
+
+        closeButton.addEventListener("click", function() {
+            profileModal.style.display = "none";
+        });
+
+        logoutButton.addEventListener("click", function() {
+            window.location.href = "index.html"; // Redirect to index.html
+        });
+
+        window.addEventListener("click", function(event) {
+            if (event.target == profileModal) {
+                profileModal.style.display = "none";
+            }
+        });
+    });
+					
+		</script>
+     <script>
+ 
+    let cart = [];
+
+    function addToCart(productName, price) {
+      cart.push({ productName, price });
+
+      updateCartBadge();
+    }
+
+    function updateCartBadge() {
+      const cartBadge = document.querySelector('.btn-badge');
+
+      cartBadge.textContent = cart.length;
+    }
+
+    document.querySelectorAll('.card-action-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const card = this.closest('.product-card');
+        const productName = card.querySelector('.card-title').textContent;
+        const price = card.querySelector('.card-price').getAttribute('value');
+
+        addToCart(productName, price);
+      });
+    });
+
+
+        // Get the search icon button
+var searchButton = document.querySelector('[aria-label="Search"]');
+
+// Get the modal element
+var searchModal = document.getElementById('searchModal');
+
+// Get the close button inside the modal
+var closeButton = searchModal.querySelector('.close');
+
+// When the search icon button is clicked, open the modal
+searchButton.addEventListener('click', function() {
+    searchModal.style.display = 'block';
+});
+
+// When the close button is clicked, close the modal
+closeButton.addEventListener('click', function() {
+    searchModal.style.display = 'none';
+});
+
+// When the user clicks anywhere outside of the modal, close it
+window.addEventListener('click', function(event) {
+    if (event.target == searchModal) {
+        searchModal.style.display = 'none';
+    }
+});
+
+// Function to close the modal
+function closeModal() {
+        document.getElementById('searchModal').style.display = "none";
+    }
+
+    // Function to redirect to the buyer.html page
+    function redirectToBuyerPage() {
+        window.location.href = "buyer.html";
+    }
+
+	document.getElementById("payNowButton").addEventListener("click", function() {
+    // Perform payment processing here (if any)
+
+    // Show alert for successful payment
+    alert("Order Placed! Delivery within 7 days");
+
+    // Redirect to buyer.html
+    window.location.href = "rate.html";
+});
+
+console.clear();
+
+/* selector functions */
+const $ = (s, o = document) => o.querySelector(s);
+const $$ = (s, o = document) => o.querySelectorAll(s);
+
+/* store references to all of the elements we'll need */
+const inputs = $$('input[type="radio"]');
+const horn1 = $('#horn-1'), horn2 = $('#horn-2'), horn3 = $('#horn-3'), horn4 = $('#horn-4'), horn5 = $('#horn-5');
+const earL = $('#ear-l'), earR = $('#ear-r'), earring = $('#earring');
+const pupil = $('#pupil');
+const eyePaths = $$('.eye-path'), mouthPaths = $$('.mouth-path');
+const chin = $('#chin'), tongue = $('#tongue'), toothTop = $('#tooth-top'), toothBot = $('#tooth-bot');
+const avatar = $('#avatar');
+
+/* path data for shape morphing */
+const eye0 = "M175.4,75.3c-12,0-23.4-0.9-33.7-2.5c-4.2,6.4-6.7,14-6.7,22.2c0,12.4,5.7,23.5,14.6,30.9c6.9,5.7,15.8,9.1,25.4,9.1c9.7,0,18.5-3.4,25.4-9.1c8.9-7.3,14.6-18.4,14.6-30.9c0-8.2-2.5-15.8-6.7-22.1C198.3,74.5,187.1,75.3,175.4,75.3z";
+const eye1 = "M213.3,82.3c-9.7,4-23.1,6.5-37.9,6.5s-28.2-2.5-37.9-6.5c-1.3,4-2.1,8.3-2.1,12.8c0,11,4.4,20.9,11.6,28.1c8.2-1.8,18-2.9,28.4-2.9s20.2,1.1,28.4,2.9c7.2-7.2,11.6-17.2,11.6-28.1C215.4,90.6,214.6,86.3,213.3,82.3z";
+const eye2 = "M215.4,95.1c0-7.4-2-14.3-5.5-20.3c-9.3,2.5-21.3,4-34.5,4s-25.1-1.5-34.5-4c-3.5,6-5.5,12.9-5.5,20.3c0,13.1,6.3,24.7,16,32c7.2-1.1,15.4-1.7,24-1.7s16.8,0.6,24,1.7C209.1,119.8,215.4,108.2,215.4,95.1z";
+const eye3 = "M152.9,128.2c6.8-0.9,14.5-1.5,22.5-1.5s15.7,0.5,22.5,1.5c10.6-7.2,17.5-19.3,17.5-33.1c0-12.8-6-24.2-15.4-31.5c-7.4,2-15.7,3.2-24.6,3.2s-17.3-1.2-24.6-3.2c-9.4,7.3-15.4,18.7-15.4,31.5C135.4,108.8,142.3,121,152.9,128.2z";
+const eye4 = "M150.7,128.1c7.3-1.1,15.6-1.7,24.3-1.7s17,0.6,24.3,1.7c10.1-7.5,16.7-19.5,16.7-33c0-13.4-6.4-25.3-16.4-32.8c-6.9-5.2-15.4-8.2-24.6-8.2c-9.5,0-18.2,3.2-25.2,8.6c-9.6,7.5-15.8,19.2-15.8,32.4C134,108.6,140.6,120.6,150.7,128.1z";
+const eye5 = "M219,95.1c0,12-4.7,23-12.4,30.9c-7.9,8.1-19,13.1-31.6,13.1c-12.2,0-23.2-4.9-31.1-12.9c-8-8-12.9-19-12.9-31.1c0-13.7,6.2-25.9,16-34c7.6-6.3,17.4-10,28-10c9.9,0,19.1,3.3,26.4,8.8C212.1,67.9,219,80.7,219,95.1z";
+const mouth0 = "M174.6,178.2h5.1H215c0,0,0.1,0,0.1,0c0,0,0,0-0.1,0h-35.3L174.6,178.2l-4.6,0.1h-35c0,0-0.1,0-0.1,0c0,0,0,0,0.1,0h35H174.6z";
+const mouth1 = "M175,172.6h7c8.9,0,16.2,6.4,17.7,14.9c0.2,1,0.3,2,0.3,3.1c0,0.8-0.5,2-2,2l-16,0h-7h-7l-16,0c-1.4,0-2-1.2-2-2c0-1,0.1-1.9,0.2-2.8c1.4-8.6,8.8-15.1,17.7-15.1H175z";
+const mouth2 = "M175,187c5.5,0,9.7-2.1,13.8-4.1c5.5-2.7,11.3-5.5,17.6-0.4c0.1,0.1,0.3,0.3,0.2,0.4c-0.1,0.1-0.3,0.1-0.4,0c-5.6-5.1-11.7-2.6-17.4,0.2c-4.2,2-7.3,4.1-13.9,4.1c-6.5,0-9-2.1-12.9-4.1c-5.1-2.8-10.6-5.8-18.6-0.6c-0.1,0-0.1,0-0.1,0c0,0,0-0.1,0.1-0.1c7.9-5.4,13.4-2.4,18.8,0.5C165.9,185,169.7,187,175,187z";
+const mouth3 = "M175,179.8c2,0,4-0.1,6-0.2c11-0.9,22-4.1,32.9-9.7c0.1,0,0.2-0.1,0.2,0c0,0.1-0.1,0.2-0.2,0.2c-11.6,6-21.7,9-33,9.7c-2,0.1-4,0.3-6,0.3c-2.3,0-4.6-0.1-6.8-0.3c-10.9-0.8-20.8-3.9-32.1-9.7c-0.1,0-0.1-0.1-0.1-0.1c0,0,0.1,0,0.2,0c10.7,5.5,21.4,8.7,32.1,9.6C170.5,179.7,172.7,179.8,175,179.8z";
+const mouth4 = "M174.8,172.6h10H200l0,4.9c0,1.4-0.2,2.7-0.6,4c-1.8,5.9-7.5,10.1-14.3,10.1h-10.4h-9.9c-6.7,0-12.3-4.2-14.2-9.9c-0.4-1.3-0.7-2.7-0.7-4.2v-4.9h14.3H174.8z";
+const mouth5 = "M175,165.6h4.8l23.3,0c5.6,0,8.9,4.7,8.9,8.9c0,3-0.4,6-1.2,8.7c-3.8,14-16.7,24.3-31.9,24.3H175h-3.9c-15.5,0-28.6-10.7-32.1-25.2c-0.6-2.5-0.9-5.2-0.9-7.9c0-5,4.1-8.9,8.9-8.9l23.9,0H175z";
+
+/* vars */
+let curRating = 0;
+let tl;
+let durReduced = 0, durNoPref = .5, dur;
+let eyeTarg, mouthTarg, chinY, pupilS, earS, earY, earRotL, earRotR, earringX, earringY, tongueY, toothTopY, toothBotY;
+const horns = [horn1,horn2,horn3,horn4,horn5];
+let hornsU = [], hornsD = horns;
+let mq;
+
+
+
+// set up matchMedia instance to detect the reduced motion media query
+mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+// safari doesn't support 'matchMedia.addEventListener' so we have to check support for that and add the legacy 'addListener' if not.
+if(mq.addEventListener) {
+	mq.addEventListener('change', onReduceMotionMQ);
+} else {
+	mq.addListener(onReduceMotionMQ);
+}
+// manually check media query initially
+onReduceMotionMQ();
+
+
+
+// activate any gsap plugins
+gsap.registerPlugin(MorphSVGPlugin);
+
+// set initial visual properties of avatar
+gsap.set(earL, 		{transformOrigin: "40px 40px", rotate: "-15deg", y: 10, scale: .9});
+gsap.set(earR, 		{transformOrigin: "40px 40px", rotate: "15deg", y: 10, scale: .9});
+gsap.set(earring, 		{transformOrigin: "50% 0", x: -12, y: 8});
+gsap.set(pupil,		{transformOrigin: "50% 50%"});
+gsap.set(eyePaths, 		{morphSVG: eye0});
+gsap.set(mouthPaths,	{morphSVG: mouth0});
+gsap.set(chin, 		{y: 0});
+gsap.set(horn1,		{transformOrigin: "20px 45px", scale: 0});
+gsap.set(horn2,		{transformOrigin: "12px 45px", scale: 0});
+gsap.set(horn3,		{transformOrigin: "32px 38px", scale: 0});
+gsap.set(horn4,		{transformOrigin: "12px 38px", scale: 0});
+gsap.set(horn5,		{transformOrigin: "50% 90%", scale: 0});
+gsap.set(avatar, 		{opacity: 1});
+
+
+
+/* add click handler to inputs */
+inputs.forEach(function(i) {
+	i.addEventListener("click", onRatingClick);
+});
+
+function onRatingClick(e) {
+	// determine which rating was clicked
+	let num = parseInt(e.target.getAttribute('data-num'));
+	
+	// crate new timeline
+	tl = gsap.timeline({paused: true, defaults:{duration: dur, ease: "sine.out"}});
+	
+	// determine which horns go up/down
+	hornsU = horns.slice(0,num);
+	if(hornsU.length > curRating) {hornsU = hornsU.slice(curRating);}
+	hornsD = horns.slice(num,curRating);
+	
+	// set props based on which rating was clicked on
+	switch (num) {
+		case 0:
+			eyeTarg = eye0;
+			mouthTarg = mouth0;
+			chinY = 0;
+			pupilS = 1;
+			earS = .9; earY = 10; earRotL = "-15deg"; earRotR = "15deg"; earringX = -12; earringY = 8;
+			tongueY = 0; toothTopY = 0; toothBotY = 0;
+			break;
+		case 1:
+			eyeTarg = eye1;
+			mouthTarg = mouth1;
+			chinY = 3;
+			pupilS = .84;
+			earS = 1.1; earY = -4; earRotL = "10deg"; earRotR = "-10deg"; earringX = 0; earringY = 0;
+			tongueY = 2; toothTopY = 5; toothBotY = -17;
+			break;
+		case 2:
+			eyeTarg = eye2;
+			mouthTarg = mouth2;
+			chinY = -2;
+			pupilS = .94;
+			earS = 1.05; earY = -2; earRotL = "5deg"; earRotR = "-5deg"; earringX = -2; earringY = -1;
+			tongueY = 0; toothTopY = 0; toothBotY = 0;
+			break;
+		case 3:
+			eyeTarg = eye3;
+			mouthTarg = mouth3;
+			chinY = -4;
+			pupilS = 1;
+			earS = 1; earY = 0; earRotL = "0deg"; earRotR = "0deg"; earringX = -4; earringY = -2;
+			tongueY = 0; toothTopY = 0; toothBotY = 0;
+			break;
+		case 4:
+			eyeTarg = eye4;
+			mouthTarg = mouth4;
+			chinY = 3;
+			pupilS = 1.1;
+			earS = .95; earY = -3; earRotL = "2deg"; earRotR = "-2deg"; earringX = -2; earringY = -5;
+			tongueY = -4; toothTopY = 6; toothBotY = -16;
+			break;
+		case 5:
+			eyeTarg = eye5;
+			mouthTarg = mouth5;
+			chinY = 14;
+			pupilS = 1.2;
+			earS = .9; earY = -6; earRotL = "4deg"; earRotR = "-4deg"; earringX = 0; earringY = -10;
+			tongueY = 0; toothTopY = 2; toothBotY = -2;
+			break;
+		default:
+			break;
+	}
+	
+	tl
+		.to(eyePaths, 			{morphSVG: eyeTarg}, 0)
+		.to(mouthPaths, 		{morphSVG: mouthTarg}, 0)
+		.to(chin, 			{y: chinY}, 0)
+		.to(pupil, 			{scale: pupilS}, 0)
+		.to(earL, 			{scale: earS, y: earY, rotate: earRotL}, 0)
+		.to(earR, 			{scale: earS, y: earY, rotate: earRotR}, 0)
+		.to(earring, 			{x: earringX, y: earringY}, 0)
+		.to(tongue, 			{y: tongueY}, 0)
+		.to(toothTop, 			{y: toothTopY}, 0)
+		.to(toothBot, 			{y: toothBotY}, 0)
+	;
+	
+	if(hornsU.length) {
+		if(dur) {
+			gsap.to(hornsU, 	{scale: 1, stagger:{each:.1, ease: "power1.out"}, duration: dur, ease: "back.out"});
+		} else {
+			gsap.set(hornsU, 	{scale: 1});
+		}		
+	}
+	if(hornsD.length) {
+		if(dur) {
+			gsap.to(hornsD,	{scale: 0, stagger: {each:-.08, ease: "power2.out"}, duration: dur, ease: "back.in"});
+		} else {
+			gsap.set(hornsD,	{scale: 0});
+		}
+	}
+	
+	curRating = num;
+	
+	tl.play();
+}
+
+
+
+function onReduceMotionMQ() {
+	// change animation time depending on user preference
+	if(mq.matches) {
+		dur = durReduced;
+	} else {
+		dur = durNoPref;
+	}
+}
+
+    </script> 
+
+    
+
+    
+		<script
+			type="module"
+			src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+		></script>
+		<script
+			nomodule
+			src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+		></script>
+	</body>
+</html>
